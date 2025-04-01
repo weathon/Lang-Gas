@@ -1,0 +1,66 @@
+`low_cpu_mem_usage` was None, now default to True since model is quantized.
+  0%|                                                                                                                                                                   | 0/451 [00:00<?, ?it/s]/home/wg25r/grounded_mog/src/git/owl_notracking.py:190: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  pylab.show(block=False)
+/home/wg25r/grounded_mog/src/git/owl_notracking.py:191: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  pylab.pause(0.0001)
+ 11%|█████████████████                                                                                                                                         | 50/451 [00:04<00:37, 10.69it/s]
+Traceback (most recent call last):
+  File "/home/wg25r/grounded_mog/src/git/owl_notracking.py", line 191, in <module>
+    pylab.pause(0.0001)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/pyplot.py", line 661, in pause
+    canvas.draw_idle()
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 1893, in draw_idle
+    self.draw(*args, **kwargs)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 388, in draw
+    self.figure.draw(self.renderer)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/artist.py", line 95, in draw_wrapper
+    result = draw(artist, renderer, *args, **kwargs)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/artist.py", line 72, in draw_wrapper
+    return draw(artist, renderer)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/figure.py", line 3154, in draw
+    mimage._draw_list_compositing_images(
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/image.py", line 132, in _draw_list_compositing_images
+    a.draw(renderer)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/artist.py", line 72, in draw_wrapper
+    return draw(artist, renderer)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/axes/_base.py", line 3070, in draw
+    mimage._draw_list_compositing_images(
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/image.py", line 132, in _draw_list_compositing_images
+    a.draw(renderer)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/artist.py", line 72, in draw_wrapper
+    return draw(artist, renderer)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/axis.py", line 1387, in draw
+    ticks_to_draw = self._update_ticks()
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/axis.py", line 1306, in _update_ticks
+    if mtransforms._interval_contains_close(interval_t, loc_t):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/wg25r/grounded_mog/src/git/owl_notracking.py", line 191, in <module>
+    pylab.pause(0.0001)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/pyplot.py", line 661, in pause
+    canvas.draw_idle()
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/backend_bases.py", line 1893, in draw_idle
+    self.draw(*args, **kwargs)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py", line 388, in draw
+    self.figure.draw(self.renderer)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/artist.py", line 95, in draw_wrapper
+    result = draw(artist, renderer, *args, **kwargs)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/artist.py", line 72, in draw_wrapper
+    return draw(artist, renderer)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/figure.py", line 3154, in draw
+    mimage._draw_list_compositing_images(
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/image.py", line 132, in _draw_list_compositing_images
+    a.draw(renderer)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/artist.py", line 72, in draw_wrapper
+    return draw(artist, renderer)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/axes/_base.py", line 3070, in draw
+    mimage._draw_list_compositing_images(
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/image.py", line 132, in _draw_list_compositing_images
+    a.draw(renderer)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/artist.py", line 72, in draw_wrapper
+    return draw(artist, renderer)
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/axis.py", line 1387, in draw
+    ticks_to_draw = self._update_ticks()
+  File "/home/wg25r/.local/lib/python3.10/site-packages/matplotlib/axis.py", line 1306, in _update_ticks
+    if mtransforms._interval_contains_close(interval_t, loc_t):
+KeyboardInterrupt
