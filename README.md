@@ -23,6 +23,7 @@ Gas leakage poses a significant hazard that requires prevention. Traditionally, 
 
 **Table: Ablation study of different components with IoU (I), Precision (P), Recall (R), and frame-level accuracy (FLA).** In the segmentation column (Seg.), traditional (Trad.) means Otsu [Otsu] combined with morphological transformations. This analysis corresponds to our ablation study, detailed in Section 4 of the paper.
 
+Warning: Different methods of calculating IoU can produce inconsistent results. We used per video aggregation and then average across all videos. 
 ## Setup Instructions
 
 
