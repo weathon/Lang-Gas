@@ -17,7 +17,7 @@ filename = args.positive_prompt.replace(" ", "_") + ".csv"
 
 if args.disable_wandb:
     os.system("wandb disabled")
-# args.positive_prompt = args.positive_prompt.replace(" ", r"\ ")
+    
 blacklist = ["vid26", "vid27", "vid28", "vid24"]
 
 # for vlm_threashold in np.arange(0.01, 0.20, 0.02):
