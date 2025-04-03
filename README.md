@@ -15,16 +15,16 @@ Gas leakage poses a significant hazard that requires prevention. Traditionally, 
 ## Results
 | BGS        | VLM Filtering | Temporal Filtering | Seg.   | τ₍VLM₎ | Stationary Foreground I/P/R/FLA | Moving Foreground I/P/R/FLA | Overall I/P/R/FLA          |
 |------------|----------------|---------------------|--------|--------|-------------------------------|-----------------------------|----------------------------|
-| ✔          |                |                     | None   | -      | 0.56 / 0.64 / 0.83 / 0.85     | 0.38 / 0.53 / 0.58 / 0.69   | 0.5 / 0.61 / 0.73 / 0.79   |
-| ✔          | ✔              |                     | SAM 2  | 0.09   | 0.67 / 0.81 / 0.79 / **0.88** | 0.54 / 0.79 / 0.65 / 0.83   | 0.62 / 0.80 / 0.74 / 0.86  |
-|            | ✔              | ✔                   | SAM 2  | 0.19   | 0.22 / 0.39 / 0.28 / 0.57     | 0.46 / 0.65 / 0.59 / 0.74   | 0.31 / 0.49 / 0.4 / 0.63   |
-| ✔          | ✔              | ✔                   | Trad.  | 0.12   | 0.57 / **0.85** / 0.65 / 0.83 | 0.35 / **0.88** / 0.37 / 0.72 | 0.49 / **0.86** / 0.55 / 0.79 |
-| ✔          | ✔              | ✔                   | SAM 2  | 0.12   | **0.70** / 0.83 / **0.82** / 0.87 | **0.69** / 0.79 / **0.84** / **0.92** | **0.69** / 0.82 / **0.82** / **0.89** |
+| ✓          |                |                     | None   | -      | 0.56 / 0.64 / 0.83 / 0.85     | 0.38 / 0.53 / 0.58 / 0.69   | 0.5 / 0.61 / 0.73 / 0.79   |
+| ✓          | ✓              |                     | SAM 2  | 0.09   | 0.67 / 0.81 / 0.79 / **0.88** | 0.54 / 0.79 / 0.65 / 0.83   | 0.62 / 0.80 / 0.74 / 0.86  |
+|            | ✓              | ✓                   | SAM 2  | 0.19   | 0.22 / 0.39 / 0.28 / 0.57     | 0.46 / 0.65 / 0.59 / 0.74   | 0.31 / 0.49 / 0.4 / 0.63   |
+| ✓          | ✓              | ✓                   | Trad.  | 0.12   | 0.57 / **0.85** / 0.65 / 0.83 | 0.35 / **0.88** / 0.37 / 0.72 | 0.49 / **0.86** / 0.55 / 0.79 |
+| ✓          | ✓              | ✓                   | SAM 2  | 0.12   | **0.70** / 0.83 / **0.82** / 0.87 | **0.69** / 0.79 / **0.84** / **0.92** | **0.69** / 0.82 / **0.82** / **0.89** |
 
 **Table: Ablation study of different components with IoU (I), Precision (P), Recall (R), and frame-level accuracy (FLA).** In the segmentation column (Seg.), traditional (Trad.) means Otsu [Otsu] combined with morphological transformations. This analysis corresponds to our ablation study, detailed in Section 4 of the paper.
 
 Warning: Different methods of calculating IoU can produce inconsistent results. We used per video aggregation and then average across all videos. 
-## Setup Instructions
+## Test on SimGas
 
 
 ### Step 1 Install required packages
@@ -88,3 +88,25 @@ To reproduce our results, use the following config with appropriate path
 python3 owl_notracking.py --temporal_filter --vlm_threashold 0.12 [OPTIONS]
 ```
 
+## Test on GasVid
+
+### Preparation  
+1. Download the dataset from the original author:  
+   [https://drive.google.com/drive/folders/1JKEMtCGPSq2IqGk4uXZP9A6gr8fyJsGC](https://drive.google.com/drive/folders/1JKEMtCGPSq2IqGk4uXZP9A6gr8fyJsGC)
+
+2. Remove all videos captured at depths greater than 18 meters as specified in the original paper.
+
+3. Place the remaining videos in the `Videos` directory.
+
+4. Run `convert_gasvid.sh` to extract frames.
+
+### Running the Test  
+1. Edit `run_gasvid.py` and `owl_gasvid.py` to set the correct dataset path.
+
+2. To evaluate the entire dataset, run:  
+   `python3 run.py`
+
+3. To evaluate a single video, run:  
+   `python3 owl_gasvid.py --video_id [video id]`
+
+4. Output results are stored in the `gasvid_res_full` directory.
