@@ -1,0 +1,11 @@
+`low_cpu_mem_usage` was None, now default to True since model is quantized.
+  0%|                                                                                                                                        | 0/393 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/wg25r/grounded_mog/src/git/owl_notracking.py", line 196, in <module>
+    output_frame = cv2.hconcat([input_frame, diff_frame, mask, gt_binary])
+cv2.error: OpenCV(4.8.1) /io/opencv/modules/core/src/matrix_operations.cpp:65: error: (-215:Assertion failed) src[i].dims <= 2 && src[i].rows == src[0].rows && src[i].type() == src[0].type() in function 'hconcat'
+
+Traceback (most recent call last):
+  File "/home/wg25r/grounded_mog/src/git/owl_notracking.py", line 196, in <module>
+    output_frame = cv2.hconcat([input_frame, diff_frame, mask, gt_binary])
+cv2.error: OpenCV(4.8.1) /io/opencv/modules/core/src/matrix_operations.cpp:65: error: (-215:Assertion failed) src[i].dims <= 2 && src[i].rows == src[0].rows && src[i].type() == src[0].type() in function 'hconcat'

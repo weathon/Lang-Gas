@@ -1,0 +1,33 @@
+`low_cpu_mem_usage` was None, now default to True since model is quantized.
+ 54%|███████████████████████████████████████████████████████████████████▋                                                          | 211/393 [00:13<00:11, 16.40it/s]/home/wg25r/.local/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(), RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default), antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+tensor(0.3999) tensor(0.2499) tensor(0.8108) tensor(0.2654)
+ 55%|█████████████████████████████████████████████████████████████████████▎                                                        | 216/393 [00:14<00:13, 13.13it/s]/home/wg25r/.local/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(), RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default), antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+tensor(0.5684) tensor(0.3970) tensor(0.8834) tensor(0.4190)
+ 56%|██████████████████████████████████████████████████████████████████████▊                                                       | 221/393 [00:14<00:12, 13.50it/s]/home/wg25r/.local/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(), RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default), antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+tensor(0.6616) tensor(0.4943) tensor(0.8628) tensor(0.5365)
+ 58%|████████████████████████████████████████████████████████████████████████▍                                                     | 226/393 [00:14<00:12, 13.43it/s]/home/wg25r/.local/lib/python3.10/site-packages/torchvision/transforms/functional.py:1603: UserWarning: The default value of the antialias parameter of all the resizing transforms (Resize(), RandomResizedCrop(), etc.) will change from None to True in v0.17, in order to be consistent across the PIL and Tensor backends. To suppress this warning, directly pass antialias=True (recommended, future default), antialias=None (current default, which means False for Tensors and True for PIL), or antialias=False (only works on Tensors - PIL will still use antialiasing). This also applies if you are using the inference transforms from the models weights: update the call to weights.transforms(antialias=True).
+  warnings.warn(
+ 59%|█████████████████████████████████████████████████████████████████████████▋                                                    | 230/393 [00:15<00:10, 15.28it/s]
+Traceback (most recent call last):
+  File "/home/wg25r/grounded_mog/src/git/owl_notracking.py", line 152, in <module>
+    masks, _, _ = predictor.predict(box=valid_boxes, multimask_output=False)
+  File "/home/wg25r/grounded_mog/segment-anything-2-real-time/sam2/sam2_image_predictor.py", line 291, in predict
+    masks, iou_predictions, low_res_masks = self._predict(
+  File "/home/wg25r/.local/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/wg25r/grounded_mog/segment-anything-2-real-time/sam2/sam2_image_predictor.py", line 395, in _predict
+    box_labels = torch.tensor([[2, 3]], dtype=torch.int, device=boxes.device)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/wg25r/grounded_mog/src/git/owl_notracking.py", line 152, in <module>
+    masks, _, _ = predictor.predict(box=valid_boxes, multimask_output=False)
+  File "/home/wg25r/grounded_mog/segment-anything-2-real-time/sam2/sam2_image_predictor.py", line 291, in predict
+    masks, iou_predictions, low_res_masks = self._predict(
+  File "/home/wg25r/.local/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/wg25r/grounded_mog/segment-anything-2-real-time/sam2/sam2_image_predictor.py", line 395, in _predict
+    box_labels = torch.tensor([[2, 3]], dtype=torch.int, device=boxes.device)
+KeyboardInterrupt

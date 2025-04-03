@@ -19,7 +19,8 @@ import torch
 
 import wandb
 import argparse
-from boxes import get_valid_boxes
+from boxes import get_valid_boxes 
+
 
 parser = argparse.ArgumentParser()
 
@@ -30,7 +31,7 @@ parser.add_argument("--video_id", type=str, default="MOV_1237")
 args = parser.parse_args()
 current_video_id = args.video_id
 os.environ["DISPLAY"] = args.display
-
+os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 # %% Load model
 from sam2.build_sam import build_sam2
 from sam2.sam2_image_predictor import SAM2ImagePredictor
@@ -145,4 +146,4 @@ video.release()
 
 # convert the png sequence into webp using ffmpeg
 
-os.system(f"ffmpeg -i gasvid_res_full/{current_video_id}/frame_%05d.png -c:v libwebp -lossless 0 -q:v 50 -preset veryslow -loop 0 -an -vsync 0 gasvid_res_full/{current_video_id}.webp")
+os.system(f"ffmpeg -i gasvid_res_full/{current_video_id}/frame_%05d.png gasvid_res_full/{current_video_id}.webp")

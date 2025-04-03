@@ -1,4 +1,6 @@
 # %% init
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
 import os
 import cv2
 from transformers import Owlv2Processor, Owlv2ForObjectDetection
@@ -15,7 +17,7 @@ import bitsandbytes
 import torch
 from sam2.build_sam import build_sam2
 from sam2.sam2_image_predictor import SAM2ImagePredictor
-import wandb
+# import wandb
 import argparse
 from boxes import get_valid_boxes
 
@@ -34,7 +36,7 @@ root_path = args.root_path
 os.environ["DISPLAY"] = args.display
 
 
-wandb.init("LangBGS2", name=str(current_video_id))
+# wandb.init("LangBGS2", name=str(current_video_id))
 
 
 videos = list(set(["_".join(i.split("_")[:-1]) for i in os.listdir(os.path.join(root_path, "in"))]))
@@ -89,7 +91,7 @@ confusion = BinaryConfusion()
 frame_level_pred = []
 frame_level_gt = []
 
-os.makedirs("result", exist_ok=True)
+os.makedirs("result_full/" + current_video_id, exist_ok=True)
 # todo: there could be places where boxes not detected, use pre and post frames to detect them
 for frame in tqdm(frames):
     filename = f'{current_video_id}_{frame.split(".")[0]}'
@@ -172,25 +174,33 @@ for frame in tqdm(frames):
         if len(valid_boxes) > 0:
             #this cannot be inside, otherwise it cannot detect false negative
             print(confusion.get_f1(), confusion.get_iou(), confusion.get_precision(), confusion.get_recall())
-            wandb.log({"f1": confusion.get_f1(),
-                       "iou": confusion.get_iou(),
-                        "precision": confusion.get_precision(),
-                        "recall": confusion.get_recall(),
-                        "frame": wandb.Image(frame),
-                        "all_boxes": wandb.Image(all_boxes_canvas),
-                        "valid_boxes": wandb.Image(valid_boxes_canvas),
-                        "frame": wandb.Image(frame),
-                        "diff": wandb.Image(np.array(diff)),
-                        "gt": wandb.Image(gt_binary),
-                        })
-            
-        cv2.imwrite(os.path.join("result", filename + ".png"), frame)
-        if args.display:
-            pylab.clf()
-            pylab.imshow(frame)
-            pylab.show(block=False)
-            pylab.pause(0.0001)
-            
+            # wandb.log({"f1": confusion.get_f1(),
+            #            "iou": confusion.get_iou(),
+            #             "precision": confusion.get_precision(),
+            #             "recall": confusion.get_recall(),
+            #             "frame": wandb.Image(frame),
+            #             "all_boxes": wandb.Image(all_boxes_canvas),
+            #             "valid_boxes": wandb.Image(valid_boxes_canvas),
+            #             "frame": wandb.Image(frame),
+            #             "original": wandb.Image(img),
+            #             "diff": wandb.Image(np.array(diff)),
+            #             "gt": wandb.Image(gt_binary),
+            #             })
+        diff = np.array(diff)
+        input_frame = cv2.putText(img, f"Input Image", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+        diff_frame = cv2.putText(diff, f"MOG Difference", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+        mask = (mask > 0).astype(np.uint8) * 255
+        if len(mask.shape) == 2:
+            mask = mask[:, :, np.newaxis]
+            mask = np.concatenate([mask, mask, mask], axis=-1)
+        mask = cv2.putText(mask, f"Predicted Mask", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+        gt_binary = (gt_binary > 0).astype(np.uint8) * 255
+        gt_binary = cv2.cvtColor(gt_binary, cv2.COLOR_GRAY2BGR)
+        gt_binary = cv2.putText(gt_binary, f"GT Mask", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+        output_frame = cv2.hconcat([input_frame, diff_frame, mask, gt_binary])
+        cv2.imwrite(os.path.join("result_full", current_video_id, filename + ".png"), output_frame)
+        
+                    
         frame_level_pred.append(mask.any())
         frame_level_gt.append(gt_binary.any())
         video_writer.write(frame)
