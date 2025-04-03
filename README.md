@@ -15,7 +15,7 @@ Gas leakage poses a significant hazard that requires prevention. Traditionally, 
 
 ## Pre-computed Masks
 `result_full` has all pre-computed masks and animated webp images for SimGas, and `gasvid_res_full` has all pre-computed masks and webp for GasVid.
-You can preview these animated webp [here](preview.md).
+You can preview these animated webp: [SimGas](simgas_preview.md) [GasVid](gasvid_preview.md).
 
 ## Results
 | BGS        | VLM Filtering | Temporal Filtering | Seg.   | τ₍VLM₎ | Stationary Foreground I/P/R/FLA | Moving Foreground I/P/R/FLA | Overall I/P/R/FLA          |
