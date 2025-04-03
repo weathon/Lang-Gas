@@ -63,8 +63,25 @@ More details: https://github.com/facebookresearch/sam2
 Go to https://paperswithcode.com/dataset/simgas and download the dataset.
 
 ## Step 4. Run the code
-Modify `run.py` and `owl_no_tracking.py` to match the directories.
-Then, run `python3 run.py`
+### Modify `owl_notracking.py` for SAM-2 path.
+Change `sam2_checkpoint` to your SAM-2 checkpoint path. Do NOT change config path.
 
+### Run the code
+Run `python3 owl_notracking.py` with the following options
+```bash
+Usage: owl_notracking.py [OPTIONS]
 
+Options:
+  --video_id TEXT           Video ID, such as vid20
+  --root_path TEXT          Root path to dataset (default: "../sim")
+  --display TEXT            Display server for visualization (default: "localhost:10.0")
+  --log_file TEXT           Output log file name (default: "results.csv")
+  --temporal_filter         Enable temporal filtering (flag)
+  --vlm_threashold FLOAT    Threshold for VLM decision (default: 0.06)
+  --positive_prompt TEXT    Positive prompt for VLM analysis (default: "white steam")
+```
+To reproduce our results, use the following config with appropriate path
+```bash
+python3 owl_notracking.py --temporal_filter --vlm_threashold 0.12 [OPTIONS]
+```
 
