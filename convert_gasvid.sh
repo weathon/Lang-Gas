@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Loop through all mp4 files in the current directory
-for file in *.mp4; do
+for file in /home/wg25r/Videos/*.mp4; do
     # Extract the base name without the extension
     base_name="${file%.mp4}"
     
