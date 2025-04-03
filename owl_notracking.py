@@ -25,7 +25,7 @@ parser.add_argument("--root_path", type=str, default="../sim")
 parser.add_argument("--display", type=str, default="localhost:10.0")
 parser.add_argument("--log_file", type=str, default="results.csv")
 parser.add_argument("--temporal_filter", action="store_true")
-parser.add_argument("--vlm_threashold", type=float, default=0.06)
+parser.add_argument("--vlm_threashold", type=float, default=0.12)
 parser.add_argument("--positive_prompt", type=str, default="white steam")
 
 args = parser.parse_args()
@@ -141,7 +141,8 @@ for frame in tqdm(frames):
         valid_boxes_canvas = frame.copy()
         for box in valid_boxes:
             cv2.rectangle(valid_boxes_canvas, (int(box[0]), int(box[1])), (int(box[2]), int(box[3])), (255, 0, 0), 1)
-                          
+            
+            
         gt = cv2.imread(os.path.join(root_path, "gt", gt_frames[index]))
         gt_binary = (gt.mean(-1) > 20).astype(np.uint8) #ohhhh cannot use 0, also maybe not 3? depends on what it looks like
 
@@ -171,17 +172,17 @@ for frame in tqdm(frames):
         if len(valid_boxes) > 0:
             #this cannot be inside, otherwise it cannot detect false negative
             print(confusion.get_f1(), confusion.get_iou(), confusion.get_precision(), confusion.get_recall())
-            # wandb.log({"f1": confusion.get_f1(),
-            #            "iou": confusion.get_iou(),
-            #             "precision": confusion.get_precision(),
-            #             "recall": confusion.get_recall(),
-            #             "frame": wandb.Image(frame),
-            #             "all_boxes": wandb.Image(all_boxes_canvas),
-            #             "valid_boxes": wandb.Image(valid_boxes_canvas),
-            #             "frame": wandb.Image(frame),
-            #             "diff": wandb.Image(np.array(diff)),
-            #             "gt": wandb.Image(gt_binary),
-            #             })
+            wandb.log({"f1": confusion.get_f1(),
+                       "iou": confusion.get_iou(),
+                        "precision": confusion.get_precision(),
+                        "recall": confusion.get_recall(),
+                        "frame": wandb.Image(frame),
+                        "all_boxes": wandb.Image(all_boxes_canvas),
+                        "valid_boxes": wandb.Image(valid_boxes_canvas),
+                        "frame": wandb.Image(frame),
+                        "diff": wandb.Image(np.array(diff)),
+                        "gt": wandb.Image(gt_binary),
+                        })
             
         cv2.imwrite(os.path.join("result", filename + ".png"), frame)
         if args.display:

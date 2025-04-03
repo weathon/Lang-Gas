@@ -80,12 +80,12 @@ Options:
   --display TEXT            Display server for visualization (default: "localhost:10.0")
   --log_file TEXT           Output log file name (default: "results.csv")
   --temporal_filter         Enable temporal filtering (flag)
-  --vlm_threashold FLOAT    Threshold for VLM decision (default: 0.06)
+  --vlm_threashold FLOAT    Threshold for VLM decision (default: 0.12)
   --positive_prompt TEXT    Positive prompt for VLM analysis (default: "white steam")
 ```
 To reproduce our results, use the following config with appropriate path
 ```bash
-python3 owl_notracking.py --temporal_filter --vlm_threashold 0.12 [OPTIONS]
+python3 owl_notracking.py --temporal_filter [OPTIONS]
 ```
 
 ## Test on GasVid
