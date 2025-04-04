@@ -77,7 +77,8 @@ Put the videos of the downloaded dataset into the `simulated_gas` folder, and ru
 
 ### Step 4. Run the code
 ### Modify `owl_notracking.py` for SAM-2 path.
-Change `sam2_checkpoint` to your SAM-2 checkpoint path. Do NOT change config path.
+
+Change `sam2_checkpoint = "../../.sam2/checkpoints/sam2.1_hiera_small.pt"` to your SAM-2 checkpoint path. Do NOT change config path.
 
 ### Run the code
 Run `python3 owl_notracking.py` with the following options
