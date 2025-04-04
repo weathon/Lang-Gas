@@ -1,5 +1,6 @@
 # %% init
-
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 import warnings
 
 import os
@@ -31,7 +32,7 @@ parser.add_argument("--video_id", type=str, default="MOV_1237")
 args = parser.parse_args()
 current_video_id = args.video_id
 os.environ["DISPLAY"] = args.display
-os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+# cannot do cuda visible devices here need to be at the top
 # %% Load model
 from sam2.build_sam import build_sam2
 from sam2.sam2_image_predictor import SAM2ImagePredictor
