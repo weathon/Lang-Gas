@@ -146,4 +146,4 @@ video.release()
 
 # convert the png sequence into webp using ffmpeg
 
-os.system(f"ffmpeg -i gasvid_res_full/{current_video_id}/frame_%05d.png gasvid_res_full/{current_video_id}.webp")
+# os.system(f"ffmpeg -i gasvid_res_full/{current_video_id}/frame_%05d.png gasvid_res_full/{current_video_id}.webp")
