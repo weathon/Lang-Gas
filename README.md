@@ -94,10 +94,7 @@ Options:
   --vlm_threashold FLOAT    Threshold for VLM decision (default: 0.12)
   --positive_prompt TEXT    Positive prompt for VLM analysis (default: "white steam")
 ```
-To reproduce our results, use the following config with appropriate path
-```bash
-python3 owl_notracking.py --temporal_filter [OPTIONS]
-```
+To reproduce our results, use `--temporal_filter` flag
 
 ## Test on GasVid
 
