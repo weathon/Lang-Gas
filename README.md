@@ -1,5 +1,7 @@
 # LangGas: Introducing Language in Selective Zero-Shot Background Subtraction for Semi-Transparent Gas Leak Detection with a New Dataset
 Wenqi Guo, Yiyang Du, Shan Du 
+University of British Columbia
+Group of Methane Emission Observation and Watch (MEOW), Weasoft Software
 
 [![arXiv](https://img.shields.io/badge/arXiv-2503.02910-b31b1b.svg)](https://arxiv.org/abs/2503.02910)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/langgas-introducing-language-in-selective/segmentation-on-simgas)](https://paperswithcode.com/sota/segmentation-on-simgas?p=langgas-introducing-language-in-selective)
