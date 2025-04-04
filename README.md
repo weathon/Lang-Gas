@@ -12,6 +12,7 @@ Gas leakage poses a significant hazard that requires prevention. Traditionally, 
 
 ## Dataset Overview
 ![image](https://github.com/user-attachments/assets/14901599-cd7b-45ba-924b-846bf46df31d)
+You can preview more [here](simgas_preview.md).
 
 ## Pre-computed Masks
 `result_full` has all pre-computed masks and animated webp images for SimGas, and `gasvid_res_full` has all pre-computed masks and webp for GasVid.
