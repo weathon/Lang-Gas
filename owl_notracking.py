@@ -6,14 +6,12 @@ import cv2
 from transformers import Owlv2Processor, Owlv2ForObjectDetection
 import pylab
 import numpy as np
-from IPython.display import display, clear_output, HTML
 from torchvision.ops import box_convert
 import torch
 from tqdm import tqdm
 from PIL import Image
 from transformers import AutoConfig
 import torchvision
-import bitsandbytes
 import torch
 from sam2.build_sam import build_sam2
 from sam2.sam2_image_predictor import SAM2ImagePredictor

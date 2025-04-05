@@ -41,9 +41,11 @@ Warning: Different methods of calculating IoU can produce inconsistent results. 
 Install pytorch according to https://pytorch.org/get-started/locally/
 
 ```bash
-pip3 install opencv-python transformers tqdm Pillow bitesandbytes wandb
+pip3 install opencv-python transformers tqdm Pillow wandb matplotlib scipy
 ```
-
+Then, run
+```bash
+pip3 install bitesandbytes 'accelerate>=0.26.0'
 ### Step 2: Download and Install SAM-2
 ```bash
 git clone https://github.com/facebookresearch/sam2.git
@@ -75,9 +77,10 @@ Go to https://paperswithcode.com/dataset/simgas and download the dataset.
 
 Put the videos of the downloaded dataset into the `simulated_gas` folder, and run `python3 dataprep.py`
 
-## Step 4. Run the code
+### Step 4. Run the code
 ### Modify `owl_notracking.py` for SAM-2 path.
-Change `sam2_checkpoint` to your SAM-2 checkpoint path. Do NOT change config path.
+
+Change `sam2_checkpoint = "../../.sam2/checkpoints/sam2.1_hiera_small.pt"` to your SAM-2 checkpoint path. Do NOT change config path.
 
 ### Run the code
 Run `python3 owl_notracking.py` with the following options
@@ -93,10 +96,7 @@ Options:
   --vlm_threashold FLOAT    Threshold for VLM decision (default: 0.12)
   --positive_prompt TEXT    Positive prompt for VLM analysis (default: "white steam")
 ```
-To reproduce our results, use the following config with appropriate path
-```bash
-python3 owl_notracking.py --temporal_filter [OPTIONS]
-```
+To reproduce our results, use `--temporal_filter` flag
 
 ## Test on GasVid
 
