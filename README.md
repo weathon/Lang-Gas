@@ -41,7 +41,7 @@ Warning: Different methods of calculating IoU can produce inconsistent results. 
 Install pytorch according to https://pytorch.org/get-started/locally/
 
 ```bash
-pip3 install opencv-python transformers tqdm Pillow wandb matplotlib
+pip3 install opencv-python transformers tqdm Pillow wandb matplotlib scipy
 ```
 Then, run
 ```bash
