@@ -15,7 +15,7 @@ for VIDEO_NAME in "$INPUT_DIR"/*/; do
 
     # Combine PNGs into a single WEBP file
     echo "Combining PNGs from ${INPUT_DIR}/${VIDEO_NAME} into $OUTPUT_FILE..."
-    if ! ffmpeg -y -i "${INPUT_DIR}/${VIDEO_NAME}/%*.png" -vcodec libwebp -lossless 1 -loop 0 "$OUTPUT_FILE"; then
+    if ! ffmpeg -y -framerate 5 -i "${INPUT_DIR}/${VIDEO_NAME}/%*.png" -vcodec libwebp -lossless 1 -loop 0 "$OUTPUT_FILE"; then
         echo "Error: Failed to create WEBP file for $VIDEO_NAME."
         continue
     fi

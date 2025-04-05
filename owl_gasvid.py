@@ -88,6 +88,7 @@ for frame_name in tqdm(sorted(os.listdir(f"/home/wg25r/Videos/{current_video_id}
             index += 1
             continue
         bg = bgsub.getBackgroundImage().astype(float)
+        diff = cv2.absdiff(img.astype(float), bg)
         factor = 15
         high_end = diff.astype(float).mean() + 1 * diff.astype(float).std()
         if high_end * factor > 255:
