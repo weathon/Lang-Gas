@@ -1,6 +1,6 @@
 # %% init
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+# os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 import warnings
 
 import os
@@ -88,8 +88,13 @@ for frame_name in tqdm(sorted(os.listdir(f"/home/wg25r/Videos/{current_video_id}
             index += 1
             continue
         bg = bgsub.getBackgroundImage().astype(float)
-        diff = cv2.absdiff(img.astype(float), bg) * 15 #too large cannot see detial, 2 step and clip each time? target value same
-        diff = np.clip(diff, 0, 128).astype(np.uint8)
+        factor = 15
+        high_end = diff.astype(float).mean() + 1 * diff.astype(float).std()
+        if high_end * factor > 255:
+            factor = 255.0 / high_end
+            print("factor", factor)
+        diff = diff.astype(float) * factor
+        diff = np.clip(diff, 0, 255).astype(np.uint8)
         
         diff = Image.fromarray(diff)
         inputs = processor(text=texts, images=diff, return_tensors="pt", padding="longest").to("cuda")
