@@ -41,7 +41,7 @@ Warning: Different methods of calculating IoU can produce inconsistent results. 
 Install pytorch according to https://pytorch.org/get-started/locally/
 
 ```bash
-pip3 install opencv-python transformers tqdm Pillow bitesandbytes wandb
+pip3 install opencv-python transformers tqdm Pillow bitesandbytes wandb matplotlib
 ```
 
 ### Step 2: Download and Install SAM-2
