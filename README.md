@@ -116,7 +116,7 @@ To reproduce our results, use `--temporal_filter` flag
 1. Edit `run_gasvid.py` and `owl_gasvid.py` to set the correct dataset path.
 
 2. To evaluate the entire dataset, run:  
-   `python3 run.py`
+   `python3 run_gasvid.py`
 
 3. To evaluate a single video, run:  
    `python3 owl_gasvid.py --video_id [video id]`
