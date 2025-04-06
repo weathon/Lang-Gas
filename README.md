@@ -6,7 +6,9 @@ Group of Methane Emission Observation and Watch (MEOW), Weasoft Software
 [![arXiv](https://img.shields.io/badge/arXiv-2503.02910-b31b1b.svg)](https://arxiv.org/abs/2503.02910)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/langgas-introducing-language-in-selective/segmentation-on-simgas)](https://paperswithcode.com/sota/segmentation-on-simgas?p=langgas-introducing-language-in-selective)
 
-[A Emojiful Version](EMOJI_README.md)
+[Latina](latin_readme.md)
+[繁体中文](traditional_chinrse_readme.md)
+[Mewspeak](mewspeak_readme.md)
 
 ## Abstract
 Gas leakage poses a significant hazard that requires prevention. Traditionally, human inspection has been used for detection, a slow and labour-intensive process. Recent research has applied machine learning techniques to this problem, yet there remains a shortage of high-quality, publicly available datasets. This paper introduces a synthetic dataset, SimGas, featuring diverse backgrounds, interfering foreground objects, diverse leak locations, and precise segmentation ground truth. We propose a zero-shot method that combines background subtraction, zero-shot object detection, filtering, and segmentation to leverage this dataset. Experimental results indicate that our approach significantly outperforms baseline methods based solely on background subtraction and zero-shot object detection with segmentation, reaching an IoU of 69% overall. We also present an analysis of various prompt configurations and threshold settings to provide deeper insights into the performance of our method. The dataset will be available after publication. 
