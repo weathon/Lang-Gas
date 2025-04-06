@@ -46,6 +46,8 @@ pip3 install opencv-python transformers tqdm Pillow wandb matplotlib scipy
 Then, run
 ```bash
 pip3 install bitesandbytes 'accelerate>=0.26.0'
+```
+
 ### Step 2: Download and Install SAM-2
 ```bash
 git clone https://github.com/facebookresearch/sam2.git
@@ -78,12 +80,12 @@ Go to https://paperswithcode.com/dataset/simgas and download the dataset.
 Put the videos of the downloaded dataset into the `simulated_gas` folder, and run `python3 dataprep.py`
 
 ### Step 4. Run the code
-### Modify `owl_notracking.py` for SAM-2 path.
+#### Modify `owl_notracking.py` for SAM-2 path.
 
 Change `sam2_checkpoint = "../../.sam2/checkpoints/sam2.1_hiera_small.pt"` to your SAM-2 checkpoint path. Do NOT change config path.
 
-### Run the code
-Run `python3 owl_notracking.py` with the following options
+#### Run the code
+Run `python3 owl_notracking.py` with the following options. If you used `dataprep.py`, the root path should be `sim`. 
 ```bash
 Usage: owl_notracking.py [OPTIONS]
 
