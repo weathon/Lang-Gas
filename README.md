@@ -77,7 +77,7 @@ bash download_ckpts.sh
 More details: https://github.com/facebookresearch/sam2
 
 ### Step 3. Download Dataset
-Go to https://paperswithcode.com/dataset/simgas and download the dataset.
+Go to https://forms.gle/dJqHdiEN5u8gbVT98 and download the dataset.
 
 Put the videos of the downloaded dataset into the `simulated_gas` folder, and run `python3 dataprep.py`
 
