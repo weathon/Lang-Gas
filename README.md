@@ -77,9 +77,12 @@ bash download_ckpts.sh
 More details: https://github.com/facebookresearch/sam2
 
 ### Step 3. Download Dataset
+#### Google Drive
 Go to https://forms.gle/dJqHdiEN5u8gbVT98 and download the dataset.
-
 Put the videos of the downloaded dataset into the `simulated_gas` folder, and run `python3 dataprep.py`
+
+#### HuggingFace
+If you want to use this dataset with HuggingFace, you can download it from [here](). However, our demo is not integrated with HF, but you can use it in your own project. 
 
 ### Step 4. Run the code
 #### Modify `owl_notracking.py` for SAM-2 path.
