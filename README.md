@@ -79,10 +79,11 @@ More details: https://github.com/facebookresearch/sam2
 ### Step 3. Download Dataset
 #### Google Drive
 Go to https://forms.gle/dJqHdiEN5u8gbVT98 and download the dataset.
-Put the videos of the downloaded dataset into the `simulated_gas` folder, and run `python3 dataprep.py`
+Put the videos of the downloaded dataset into the `simulated_gas` folder, and run `python3 dataprep.py`.
+Remove video 24, 26, 27, 28 as needed. (see the paper)
 
 #### HuggingFace
-If you want to use this dataset with HuggingFace, you can download it from [here](). However, our demo is not integrated with HF, but you can use it in your own project. 
+If you want to use this dataset with HuggingFace, you can download it from [here](). However, our demo is not integrated with HF, but you can use it in your own project. The HF dataset does not include video 24 to ensure same length for input and groundtruth. 
 
 ### Step 4. Run the code
 #### Modify `owl_notracking.py` for SAM-2 path.
