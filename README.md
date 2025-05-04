@@ -83,7 +83,7 @@ Put the videos of the downloaded dataset into the `simulated_gas` folder, and ru
 Remove video 24, 26, 27, 28 as needed. (see the paper)
 
 #### HuggingFace
-If you want to use this dataset with HuggingFace, you can download it from [here](). However, our demo is not integrated with HF, but you can use it in your own project. The HF dataset does not include video 24 to ensure same length for input and groundtruth. 
+If you want to use this dataset with HuggingFace, you can download it from [here](https://huggingface.co/datasets/weathon/sim_gas). However, our demo is not integrated with HF, but you can use it in your own project. The HF dataset does not include video 24 to ensure same length for input and groundtruth. 
 
 ### Step 4. Run the code
 #### Modify `owl_notracking.py` for SAM-2 path.
